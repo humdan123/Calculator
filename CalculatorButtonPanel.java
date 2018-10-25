@@ -26,17 +26,19 @@ public class CalculatorButtonPanel extends VBox implements EventHandler<ActionEv
 	public CalculatorButtonPanel() {
 		Button b;
 		calcView = new TextField();
-		
+		// Creates new TextField
 		calcView.setPrefColumnCount(14);
 		calcView.setEditable(false);
 		this.getChildren().add(calcView);
 		
+		// Creates the button panel
 		buttons = new GridPane();
 		
 		buttons.setHgap(2);
 		buttons.setVgap(2);
 		buttons.setPadding(new Insets(10));
 		
+		//Creates the buttons on the panels
 		int i = 1;
 		while (i < 10) {
 			b = new Button(""+i);
