@@ -33,13 +33,13 @@ public class CalculatorButtonPanel extends VBox implements EventHandler<ActionEv
 		
 		// Creates the button panel
 		buttons = new GridPane();
-		buttons.setPrefWidth(30);
+		buttons.setPrefWidth(35);
 		
 		buttons.setHgap(2);
 		buttons.setVgap(2);
 		buttons.setPadding(new Insets(10));
 		
-		//Creates the buttons on the panels
+		//Creates the buttons on the panel
 		int i = 1;
 		while (i < 10) {
 			int x = (i - 1)/3;
@@ -93,6 +93,26 @@ public class CalculatorButtonPanel extends VBox implements EventHandler<ActionEv
 		b = new Button("+");
 		b.setMinWidth(buttons.getPrefWidth());
 		buttons.add(b, 3, 3);
+		b.setOnAction(this);
+		
+		b = new Button("C");
+		b.setMinWidth(buttons.getPrefWidth());
+		buttons.add(b, 4, 0);
+		b.setOnAction(this);
+		
+		b = new Button("←");
+		b.setMinWidth(buttons.getPrefWidth());
+		buttons.add(b, 4, 1);
+		b.setOnAction(this);
+		
+		b = new Button("x²");
+		b.setMinWidth(buttons.getPrefWidth());
+		buttons.add(b, 4, 2);
+		b.setOnAction(this);
+		
+		b = new Button("√");
+		b.setMinWidth(buttons.getPrefWidth());
+		buttons.add(b, 4, 3);
 		b.setOnAction(this);
 		
 		this.getChildren().add(buttons);
@@ -159,6 +179,14 @@ public class CalculatorButtonPanel extends VBox implements EventHandler<ActionEv
 			calcView.setText(input);
 			isLastEqual = false;
 		}
+		// If the C button was pressed, clears input
+		else if (input =="C") {
+			calcView.setText("");
+			isNum1 = false;
+			isNum2 = false;
+			isOperator = false;
+			isLastEqual = false;
+		}
 		// If the input is an operator, then it does not add it to the TextView
 		else if (input == "=" || input == "+" || input == "-" || input == "x" || input == "/") {
 			return;
@@ -166,10 +194,34 @@ public class CalculatorButtonPanel extends VBox implements EventHandler<ActionEv
 		// Adds the numbers to the TextField
 		else {
 			calcView.appendText(input);
-		}
+		} 
 		return;
 	}
 	
+	public String add(String input, String text) {
+		return input;
+	}
+	
+	public String subtract(String input, String text) {
+		return input;
+	}
+	
+	public String multiply(String input, String text) {
+		return input;
+	}
+	
+	public String divide(String input, String text) {
+		return input;
+	}
+	
+	public String squareRoot(String input, String text) {
+		return input;
+	}
+	
+	public String square(String input, String text) {
+		return input;
+	} 
+
 	/**
 	 * The method that does the calculations based on what the handler calls upon
 	 * @param num1 The first number being inputed into the calculator
